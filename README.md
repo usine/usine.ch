@@ -1,6 +1,6 @@
 # L'Usine
 
-> usine.ch
+> [usine.ch](https://usine.ch)
 
 ## Contribuer
 
