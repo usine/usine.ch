@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Event;
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+
 class EventController extends Controller
 {
     /**
@@ -14,9 +16,20 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $now = Carbon::now();
 
-        return view('events.index', compact('events'));
+        $eventsToday = Event::whereDate('start', Carbon::today())->orderBy('start')->orderBy('end')->get();
+        foreach ($eventsToday as $event) {
+            if ($event->end < $now) {
+                $event->finished = true;
+            }
+        }
+
+        $eventsTomorrow = Event::whereDate('start', Carbon::tomorrow())->orderBy('start')->orderBy('end')->get();
+        $eventsDayAfterTomorrow = Event::whereDate('start', Carbon::tomorrow()->addDay())->orderBy('start')->orderBy('end')->get();
+        $eventsDayAfterAfterTomorrow = Event::whereDate('start', Carbon::tomorrow()->addDays(2))->orderBy('start')->orderBy('end')->get();
+
+        return view('events.index', compact(['eventsToday', 'eventsTomorrow', 'eventsDayAfterTomorrow', 'eventsDayAfterAfterTomorrow']));
     }
 
     /**

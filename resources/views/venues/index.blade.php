@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     @foreach ($venues as $venue)
         <a href="{{ route('venues.show', $venue) }}" class="mb-3 d-block text-body">
             {{ $venue->name }}
