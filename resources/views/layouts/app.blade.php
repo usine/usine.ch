@@ -30,13 +30,13 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a href="{{ route('home') }}" class="nav-link">Accueil</a>
+                            <a href="{{ route('home') }}" class="nav-link {{ (request()->is('/')) ? 'active' : '' }}">Accueil</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('events.index') }}" class="nav-link">Agenda</a>
+                            <a href="{{ route('events.index') }}" class="nav-link {{ (request()->is('agenda*')) ? 'active' : '' }}">Agenda</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('venues.index') }}" class="nav-link">Espaces</a>
+                            <a href="{{ route('venues.index') }}" class="nav-link {{ (request()->is('espaces*')) ? 'active' : '' }}">Espaces</a>
                         </li>
                     </ul>
 
