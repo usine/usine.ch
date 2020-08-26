@@ -32,7 +32,7 @@ class VenueSeeder extends Seeder
         ]);
 
         DB::table('venues')->insert([
-            'name' => 'Spoutnik',
+            'name' => 'Cinéma Spoutnik',
         ]);
 
         DB::table('venues')->insert([
@@ -57,6 +57,26 @@ class VenueSeeder extends Seeder
 
         DB::table('venues')->insert([
             'name' => 'archiCouture',
+        ]);
+
+        DB::table('venues')->insert([
+            'name' => 'Urgence Disk',
+        ]);
+
+        DB::table('venues')->insert([
+            'name' => 'Studio des Forces Motrices',
+        ]);
+
+        DB::table('venues')->insert([
+            'name' => 'Studio Coffre-fort',
+        ]);
+
+        DB::table('venues')->insert([
+            'name' => 'Le cheveu sur la soupe',
+        ]);
+
+        DB::table('venues')->insert([
+            'name' => 'Reklam & Ladiff',
         ]);
     }
 }
