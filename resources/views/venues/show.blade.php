@@ -28,7 +28,7 @@
         <ul class="list-unstyled">
             @foreach ($venue->events as $event)
                 <li>
-                    <a href="{{ route('events.show', $event) }}">{{ $event->name }}</a>
+                    <a href="{{ route('events.show', $event) }}">{{ $event->title }}</a>
                 </li>
             @endforeach
         </ul>

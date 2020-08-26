@@ -6,7 +6,7 @@
         <a href="{{ route('events.show', $event) }}" class="mb-3 d-block text-body">
             {{ $event->start }} — {{ $event->end }}
             <br>
-            <span class="font-weight-bold">{{ $event->name }}</span>
+            <span class="font-weight-bold">{{ $event->title }}</span>
             <br>
             <span>{{ $event->venue->name }}</span>
         </a>

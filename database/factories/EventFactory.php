@@ -16,7 +16,7 @@ $factory->define(Event::class, function (Faker $faker) use ($maxDate, $venues) {
     $end = (new Carbon($start))->addHours($faker->randomDigitNotNull());
 
     return [
-        'name' => $faker->text($maxNbChars = 50),
+        'title' => $faker->text($maxNbChars = 50),
         'price' => $faker->randomElement(['Prix libre', 'Entrée libre', $faker->numberBetween(0, 50) . ' CHF']),
         'start' => $start,
         'end' => $end,

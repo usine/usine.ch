@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>{{ $event->name }}</h1>
+    <h1>{{ $event->title }}</h1>
     <p>
         {{ $event->start }} — {{ $event->end }}
     </p>
