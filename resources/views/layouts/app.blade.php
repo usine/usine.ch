@@ -29,7 +29,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a href="{{ route('home') }}" class="nav-link">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('events.index') }}" class="nav-link">Agenda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('venues.index') }}" class="nav-link">Espaces</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

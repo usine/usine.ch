@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register' => false]);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::resource('espaces', 'VenueController', ['names' => 'venues'])->only(['index', 'show'])->parameters([
+    'espaces' => 'venue',
+]);
+
+Route::resource('agenda', 'EventController', ['names' => 'events'])->only(['index', 'show'])->parameters([
+    'agenda' => 'event',
+]);
