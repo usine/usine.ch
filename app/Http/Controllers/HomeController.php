@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Bla;
 use App\Event;
 
 use Carbon\Carbon;
@@ -21,6 +22,8 @@ class HomeController extends Controller
             }
         }
 
-        return view('home', compact('events'));
+        $latestBla = Bla::orderBy('date', 'desc')->first();
+
+        return view('home', compact('latestBla', 'events'));
     }
 }
