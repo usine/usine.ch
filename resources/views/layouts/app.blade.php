@@ -36,6 +36,9 @@
                 <li class="nav-item">
                     <a href="{{ route('venues.index') }}" class="nav-link {{ (request()->is('espaces*')) ? 'active' : '' }}">Espaces</a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('contact') }}" class="nav-link {{ (request()->is('contact')) ? 'active' : '' }}">Contact</a>
+                </li>
                 @auth
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
