@@ -14,6 +14,7 @@
                     <span>{{ $event->venue->name }}</span>
                 </a>
             @endforeach
+            <a href="{{ route('events.index') }}">Tous les évènements →</a>
         </div>
         <div class="col-12 col-md">
             <h1>{{ $latestBla->title }}</h1>
