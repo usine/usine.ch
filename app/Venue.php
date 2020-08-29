@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Venue extends Model
@@ -37,5 +38,15 @@ class Venue extends Model
     public function events()
     {
         return $this->hasMany('App\Event');
+    }
+
+    public function eventsToCome()
+    {
+        return $this->hasMany('App\Event')->whereDate('start', '>=', Carbon::today())->orderBy('start')->orderBy('end');
+    }
+
+    public function eventsPast()
+    {
+        return $this->hasMany('App\Event')->whereDate('end', '<', Carbon::today())->orderBy('start', 'desc')->orderBy('end', 'desc');
     }
 }

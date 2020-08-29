@@ -25,10 +25,27 @@
 
     <section>
         <h2>Évènements</h2>
+        <h3>À venir</h3>
         <ul class="list-unstyled">
-            @foreach ($venue->events as $event)
+            @foreach ($venue->eventsToCome as $event)
                 <li>
-                    <a href="{{ route('events.show', $event) }}">{{ $event->title }}</a>
+                    <a href="{{ route('events.show', $event) }}" class="mb-3 d-block text-body @if ($event->finished) text-muted @endif">
+                        {{ $event->start }} — {{ $event->end }}
+                        <br>
+                        <span class="font-weight-bold">{{ $event->title }}</span>
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+        <h3>Passé</h3>
+        <ul class="list-unstyled">
+            @foreach ($venue->eventsPast as $event)
+                <li>
+                    <a href="{{ route('events.show', $event) }}" class="mb-3 d-block text-body @if ($event->finished) text-muted @endif">
+                        {{ $event->start }} — {{ $event->end }}
+                        <br>
+                        <span class="font-weight-bold">{{ $event->title }}</span>
+                    </a>
                 </li>
             @endforeach
         </ul>
