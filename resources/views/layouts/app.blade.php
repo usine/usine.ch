@@ -90,6 +90,7 @@
             bureau : 4, Place des Volontaires – 2ème étage, à droite.
         </p>
         <a href="{{ route('login') }}" class="text-muted">{{ __('Connexion') }}</a>
+        <a href="https://contribuer.usine.ch/" class="text-muted ml-3">Contribuer au site</a>
     </footer>
 </body>
 </html>
