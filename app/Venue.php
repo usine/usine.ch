@@ -39,14 +39,4 @@ class Venue extends Model
     {
         return $this->hasMany('App\Event');
     }
-
-    public function eventsToCome()
-    {
-        return $this->hasMany('App\Event')->whereDate('start', '>=', Carbon::today())->orderBy('start')->orderBy('end');
-    }
-
-    public function eventsPast()
-    {
-        return $this->hasMany('App\Event')->whereDate('end', '<', Carbon::today())->orderBy('start', 'desc')->orderBy('end', 'desc');
-    }
 }

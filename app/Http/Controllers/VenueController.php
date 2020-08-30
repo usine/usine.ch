@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use App\Venue;
 use Illuminate\Http\Request;
 
@@ -46,9 +47,11 @@ class VenueController extends Controller
      * @param  \App\Venue  $venue
      * @return \Illuminate\Http\Response
      */
-    public function show(Venue $venue)
+    public function show(Request $request, Venue $venue)
     {
-        return view('venues.show', compact('venue'));
+        [$date,$eventsAtDate, $eventsAtDatePlus1, $eventsAtDatePlus2] = Event::eventsForThreeDays($request->query('date'), $venue->id);
+
+        return view('venues.show', compact(['venue', 'date', 'eventsAtDate', 'eventsAtDatePlus1', 'eventsAtDatePlus2']));
     }
 
     /**

@@ -5,15 +5,11 @@
     <div class="row">
         <div class="col-12 col-md">
             <h1>À l'affiche</h1>
-            @foreach ($events as $event)
-                <a href="{{ route('events.show', $event) }}" class="mb-3 d-block text-body @if ($event->finished) text-muted @endif">
-                    {{ $event->start->format('H:i') }} — {{ $event->end->format('H:i') }}
-                    <br>
-                    <span class="font-weight-bold">{{ $event->title }}</span>
-                    <br>
-                    <span>{{ $event->venue->name }}</span>
-                </a>
-            @endforeach
+            @forelse ($events as $event)
+                @include('events.includes.card')
+            @empty
+                <p class="text-muted font-italic">Pas d'évènements prévu aujourd'hui 😢</p>
+            @endforelse
             <a href="{{ route('events.index') }}">Tous les évènements →</a>
         </div>
         <div class="col-12 col-md">
