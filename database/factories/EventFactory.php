@@ -17,6 +17,7 @@ $factory->define(Event::class, function (Faker $faker) use ($maxDate, $venues) {
 
     return [
         'title' => $faker->text($maxNbChars = 50),
+        'description' => $faker->boolean() ? $faker->paragraph() : null,
         'price' => $faker->randomElement(['Prix libre', 'Entrée libre', $faker->numberBetween(0, 50) . ' CHF']),
         'start' => $start,
         'end' => $end,

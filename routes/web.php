@@ -27,7 +27,7 @@ Route::resource('espaces', 'VenueController', ['names' => 'venues'])->only(['ind
     'espaces' => 'venue',
 ]);
 
-Route::resource('agenda', 'EventController', ['names' => 'events'])->only(['index', 'show'])->parameters([
+Route::resource('agenda', 'EventController', ['names' => 'events'])->parameters([
     'agenda' => 'event',
 ]);
 

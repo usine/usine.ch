@@ -35,6 +35,8 @@ class Event extends Model
         return 'slug';
     }
 
+    protected $guarded = [];
+
     protected $casts = [
         'start' => 'datetime',
         'end' => 'datetime',
@@ -43,6 +45,16 @@ class Event extends Model
     public function venue()
     {
         return $this->belongsTo('App\Venue');
+    }
+
+    public function getStartFormattedForInputAttribute()
+    {
+        return Carbon::parse($this->start)->format('Y-m-d\TH:i');
+    }
+
+    public function getEndFormattedForInputAttribute()
+    {
+        return Carbon::parse($this->end)->format('Y-m-d\TH:i');
     }
 
     public static function eventsAtDate($date, $venueId = null)

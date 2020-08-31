@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Venue;
+use App\Http\Requests\EventRequest;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Event::class, 'event');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +33,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        $venues = Venue::orderBy('name')->get();
+        return view('events.create', compact('venues'));
     }
 
     /**
@@ -35,9 +43,11 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EventRequest $request)
     {
-        //
+        $event = Event::create($request->validated());
+
+        return redirect()->route('events.show', compact('event'));
     }
 
     /**
@@ -59,7 +69,8 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        $venues = Venue::orderBy('name')->get();
+        return view('events.edit', compact('event', 'venues'));
     }
 
     /**
@@ -69,9 +80,11 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(EventRequest $request, Event $event)
     {
-        //
+        $event->update($request->validated());
+
+        return redirect()->route('events.show', compact('event'));
     }
 
     /**
@@ -82,6 +95,8 @@ class EventController extends Controller
      */
     public function destroy(Event $event)
     {
-        //
+        $event->delete();
+
+        return redirect()->route('events.index');
     }
 }

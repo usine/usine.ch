@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
 
             $table->string('title');
             $table->string('slug')->unique();
+            $table->text('description')->nullable();
             $table->text('price');
             $table->dateTime('start');
             $table->dateTime('end');
