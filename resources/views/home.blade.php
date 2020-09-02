@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12 col-md">
-            <h1>À l'affiche</h1>
+            <h1>Aujourd'hui à L'Usine</h1>
             @forelse ($events as $event)
                 @include('events.includes.card')
             @empty
