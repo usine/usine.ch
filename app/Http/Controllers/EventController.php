@@ -21,7 +21,12 @@ class EventController extends Controller
      */
     public function index(Request $request)
     {
-        [$date,$eventsAtDate, $eventsAtDatePlus1, $eventsAtDatePlus2] = Event::eventsForThreeDays($request->query('date'));
+        [
+            $date,
+            $eventsAtDate,
+            $eventsAtDatePlus1,
+            $eventsAtDatePlus2
+        ] = Event::eventsForThreeDays($request->query('date'));
 
         return view('events.index', compact(['date', 'eventsAtDate', 'eventsAtDatePlus1', 'eventsAtDatePlus2']));
     }
