@@ -25,7 +25,7 @@ class EventRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'venue_id' => 'required',
+            'venues' => 'required|array',
             'description' => 'nullable|string',
             'price' => 'required|string|max:255',
             'start' => 'required|date',
@@ -43,7 +43,7 @@ class EventRequest extends FormRequest
         return [
             'title.required' => 'Le Titre est obligatoire',
             'title.max' => 'Le Titre est trop long (max 255 caractères)',
-            'venue_id.required' => 'Un Espace est obligatoire',
+            'venues.required' => 'Au moins un Espace est obligatoire',
             'price.required' => 'L\'Entrée est obligatoire',
             'start.required' => 'Le Début est obligatoire',
             'end.required' => 'La Fin est obligatoire',

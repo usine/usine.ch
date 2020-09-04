@@ -51,6 +51,7 @@ class EventController extends Controller
     public function store(EventRequest $request)
     {
         $event = Event::create($request->validated());
+        $event->venues()->sync($request->venues);
 
         return redirect()->route('events.show', compact('event'));
     }
@@ -88,6 +89,7 @@ class EventController extends Controller
     public function update(EventRequest $request, Event $event)
     {
         $event->update($request->validated());
+        $event->venues()->sync($request->venues);
 
         return redirect()->route('events.show', compact('event'));
     }

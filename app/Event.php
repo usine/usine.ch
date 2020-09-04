@@ -35,16 +35,27 @@ class Event extends Model
         return 'slug';
     }
 
-    protected $guarded = [];
+    protected $fillable = [
+        'title',
+        'description',
+        'price',
+        'start',
+        'end',
+    ];
 
     protected $casts = [
         'start' => 'datetime',
         'end' => 'datetime',
     ];
 
-    public function venue()
+    public function venues()
     {
-        return $this->belongsTo('App\Venue');
+        return $this->belongsToMany('App\Venue');
+    }
+
+    public function getVenuesListAttribute()
+    {
+        return $this->venues->implode('name', ', ');
     }
 
     public function getStartFormattedForInputAttribute()
@@ -62,7 +73,9 @@ class Event extends Model
         $now = Carbon::now();
         $events =  Event::whereDate('start', $date)
             ->when($venueId, function ($query, $venueId) {
-                return $query->where('venue_id', '=', $venueId);
+                $query->whereHas('venues', function ($query2) use ($venueId) {
+                    $query2->where('venues.id', $venueId);
+                });
             })
             ->orderBy('start')->orderBy('end')->get();
 

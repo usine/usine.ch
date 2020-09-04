@@ -3,5 +3,5 @@
     <br>
     <span class="font-weight-bold">{{ $event->title }}</span>
     <br>
-    <span>{{ $event->venue->name }}</span>
+    <span>{{ $event->venuesList }}</span>
 </a>

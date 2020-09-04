@@ -11,11 +11,10 @@
           <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}" required>
         </div>
         <div class="form-group">
-          <label for="espaces">Espace *</label>
-          <select class="form-control" id="espaces" name="venue_id" required>
-              <option></option>
+          <label for="espaces">Espace(s) *</label>
+          <select multiple class="form-control" id="espaces" name="venues[]" required>
               @foreach ($venues as $venue)
-                  <option value="{{ $venue->id }}" @if (old('venue_id') === $venue->id) selected @endif>{{ $venue->name }}</option>
+                  <option value="{{ $venue->id }}" @if (in_array($venue->id, old('venues', []))) selected @endif>{{ $venue->name }}</option>
               @endforeach
           </select>
         </div>

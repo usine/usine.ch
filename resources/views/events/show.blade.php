@@ -10,9 +10,9 @@
         {{ $event->price }}
     </p>
     <p>
-        <a href="{{ route('venues.show', $event->venue) }}">
-            {{ $event->venue->name }}
-        </a>
+        @foreach ($event->venues as $venue)
+            <a href="{{ route('venues.show', $venue) }}">{{ $venue->name }}</a>@if(!$loop->last), @endif
+        @endforeach
     </p>
 
     @if ($event->description)
