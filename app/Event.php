@@ -59,6 +59,18 @@ class Event extends Model
         return $this->venues->implode('name', ', ');
     }
 
+    // https://stackoverflow.com/questions/38414371/replace-all-urls-in-text-to-clickable-links-in-php/38414688
+    private function replaceTextLinkByHref($input)
+    {
+        $pattern = '@(http(s)?://)?(([a-zA-Z])([-\w]+\.)+([^\s\.]+[^\s]*)+[^,.\s])@';
+        return preg_replace($pattern, '<a href="http$2://$3">$0</a>', $input);
+    }
+
+    public function getFormattedDescriptionAttribute()
+    {
+        return nl2br($this->replaceTextLinkByHref($this->description));
+    }
+
     public function getStartFormattedForInputAttribute()
     {
         return Carbon::parse($this->start)->format('Y-m-d\TH:i');

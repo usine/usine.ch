@@ -3,30 +3,36 @@
 @section('content')
 <div class="container-fluid">
     <h1>{{ $event->title }}</h1>
-    <p>
-        {{ $event->start }}
 
-        @if ($event->end)
-             — {{ $event->end }}
+    <div class="row">
+        <div class="col-12 col-md">
+            <p>
+                {{ $event->start }}
+
+                @if ($event->end)
+                     — {{ $event->end }}
+                @endif
+            </p>
+            <p>
+                {{ $event->price }}
+            </p>
+            @if ($event->billetterie)
+                <p>
+                    <a href="{{ $event->billetterie }}" class="btn btn-outline-primary">Billets</a>
+                </p>
+            @endif
+            <p>
+                @foreach ($event->venues as $venue)
+                    <a href="{{ route('venues.show', $venue) }}">{{ $venue->name }}</a>@if(!$loop->last), @endif
+                @endforeach
+            </p>
+        </div>
+        @if ($event->description)
+            <div class="col-12 col-md">
+                <p>{!! $event->formattedDescription !!}</p>
+            </div>
         @endif
-    </p>
-    <p>
-        {{ $event->price }}
-    </p>
-    @if ($event->billetterie)
-        <p>
-            <a href="{{ $event->billetterie }}" class="btn btn-outline-primary">Billets</a>
-        </p>
-    @endif
-    <p>
-        @foreach ($event->venues as $venue)
-            <a href="{{ route('venues.show', $venue) }}">{{ $venue->name }}</a>@if(!$loop->last), @endif
-        @endforeach
-    </p>
-
-    @if ($event->description)
-        <p>{{ $event->description }}</p>
-    @endif
+    </div>
 
     @can('update', $event)
         <a href="{{ route('events.edit', $event) }}" class="btn btn-primary">Modifier</a>
