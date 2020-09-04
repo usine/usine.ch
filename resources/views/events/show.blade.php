@@ -4,7 +4,11 @@
 <div class="container-fluid">
     <h1>{{ $event->title }}</h1>
     <p>
-        {{ $event->start }} — {{ $event->end }}
+        {{ $event->start }}
+
+        @if ($event->end)
+             — {{ $event->end }}
+        @endif
     </p>
     <p>
         {{ $event->price }}

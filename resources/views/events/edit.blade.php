@@ -42,8 +42,8 @@
             </div>
             <div class="col-12 col-md">
                 <div class="form-group">
-                  <label for="end">Fin *</label>
-                  <input type="datetime-local" class="form-control" name="end" id="end" value="{{ old('end', $event->endFormattedForInput) }}" required>
+                  <label for="end">Fin</label>
+                  <input type="datetime-local" class="form-control" name="end" id="end" value="{{ old('end', $event->endFormattedForInput) }}">
                 </div>
             </div>
         </div>

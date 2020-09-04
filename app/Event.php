@@ -66,7 +66,11 @@ class Event extends Model
 
     public function getEndFormattedForInputAttribute()
     {
-        return Carbon::parse($this->end)->format('Y-m-d\TH:i');
+        if ($this->end) {
+            return Carbon::parse($this->end)->format('Y-m-d\TH:i');
+        }
+
+        return null;
     }
 
     public static function eventsAtDate($date, $venueId = null)
@@ -81,7 +85,7 @@ class Event extends Model
             ->orderBy('start')->orderBy('end')->get();
 
         foreach ($events as $event) {
-            if ($event->end < $now) {
+            if ($event->end && $event->end < $now) {
                 $event->finished = true;
             }
         }
