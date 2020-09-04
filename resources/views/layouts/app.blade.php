@@ -99,7 +99,16 @@
             <br>
             bureau : 4, Place des Volontaires – 2ème étage, à droite.
         </p>
-        <a href="{{ route('login') }}" class="text-muted">{{ __('Connexion') }}</a>
+
+        @auth
+            <a class="text-muted" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                {{ __('Déconnexion') }}
+            </a>
+        @else
+            <a href="{{ route('login') }}" class="text-muted">{{ __('Connexion') }}</a>
+        @endauth
         <a href="https://contribuer.usine.ch/" class="text-muted ml-3">Contribuer au site</a>
     </footer>
 </body>
