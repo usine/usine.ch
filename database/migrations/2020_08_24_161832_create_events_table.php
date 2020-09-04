@@ -23,6 +23,7 @@ class CreateEventsTable extends Migration
             $table->text('price');
             $table->dateTime('start');
             $table->dateTime('end');
+            $table->string('billetterie')->nullable();
         });
     }
 

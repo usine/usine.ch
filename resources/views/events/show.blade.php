@@ -9,6 +9,11 @@
     <p>
         {{ $event->price }}
     </p>
+    @if ($event->billetterie)
+        <p>
+            <a href="{{ $event->billetterie }}" class="btn btn-outline-primary">Billets</a>
+        </p>
+    @endif
     <p>
         @foreach ($event->venues as $venue)
             <a href="{{ route('venues.show', $venue) }}">{{ $venue->name }}</a>@if(!$loop->last), @endif

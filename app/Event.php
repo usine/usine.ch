@@ -41,6 +41,7 @@ class Event extends Model
         'price',
         'start',
         'end',
+        'billetterie',
     ];
 
     protected $casts = [

@@ -18,9 +18,19 @@
               @endforeach
           </select>
         </div>
-        <div class="form-group">
-          <label for="price">Entrée (prix, texte libre, ...) *</label>
-          <input type="text" class="form-control" name="price" id="price" value="{{ old('price') }}" required>
+        <div class="row">
+            <div class="col-12 col-md">
+                <div class="form-group">
+                  <label for="price">Entrée (prix, texte libre, ...) *</label>
+                  <input type="text" class="form-control" name="price" id="price" value="{{ old('price') }}" required>
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="form-group">
+                  <label for="billetterie">Billetterie (URL)</label>
+                  <input type="text" class="form-control" name="billetterie" id="billetterie" value="{{ old('billetterie') }}">
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-12 col-md">

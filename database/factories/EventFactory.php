@@ -19,5 +19,6 @@ $factory->define(Event::class, function (Faker $faker) use ($maxDate) {
         'price' => $faker->randomElement(['Prix libre', 'Entrée libre', $faker->numberBetween(0, 50) . ' CHF']),
         'start' => $start,
         'end' => $end,
+        'billetterie' => $faker->boolean() ? $faker->url() : null,
     ];
 });

@@ -30,6 +30,7 @@ class EventRequest extends FormRequest
             'price' => 'required|string|max:255',
             'start' => 'required|date',
             'end' => 'required|date|after:start',
+            'billetterie' => 'nullable|string|max:255|url',
         ];
     }
 
@@ -48,6 +49,8 @@ class EventRequest extends FormRequest
             'start.required' => 'Le Début est obligatoire',
             'end.required' => 'La Fin est obligatoire',
             'end.after' => 'La Fin doit être ultérieure au Début',
+            'billetterie.max' => 'Le lien vers la Billetterie est trop long (max 255 caractères)',
+            'billetterie.url' => 'Le lien vers la Billetterie n\'est pas une URL valide',
         ];
     }
 }
