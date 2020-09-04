@@ -13,14 +13,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $now = Carbon::now();
-
-        $events = Event::whereDate('start', Carbon::today())->orderBy('start')->orderBy('end')->get();
-        foreach ($events as $event) {
-            if ($event->end < $now) {
-                $event->finished = true;
-            }
-        }
+        $events = Event::eventsAtDate(Carbon::today());
 
         $latestBla = Bla::orderBy('date', 'desc')->first();
 
