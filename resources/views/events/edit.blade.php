@@ -38,6 +38,7 @@
                 <div class="form-group">
                   <label for="start">Début *</label>
                   <input type="datetime-local" class="form-control" name="start" id="start" value="{{ old('start', $event->startFormattedForInput) }}" required>
+                  <small class="form-text text-muted">Si l'heure de début est antérieure 5h du matin, l'évènement sera affiché avec les évènements du jour précédent</small>
                 </div>
             </div>
             <div class="col-12 col-md">

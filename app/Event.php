@@ -73,10 +73,12 @@ class Event extends Model
         return null;
     }
 
-    public static function eventsAtDate($date, $venueId = null)
+    public static function eventsAtDate($date, $venueId = null, $shiftInHours = 5)
     {
-        $now = Carbon::now();
-        $events =  Event::whereDate('start', $date)
+        $s = $date->copy()->startOfDay()->addHours($shiftInHours);
+        $e = $s->copy()->addDay();
+
+        $events = Event::where('start', '>', $s)->where('start', '<=', $e)
             ->when($venueId, function ($query, $venueId) {
                 $query->whereHas('venues', function ($query2) use ($venueId) {
                     $query2->where('venues.id', $venueId);
@@ -85,8 +87,14 @@ class Event extends Model
             ->orderBy('start')->orderBy('end')->get();
 
         foreach ($events as $event) {
-            if ($event->end && $event->end < $now) {
-                $event->finished = true;
+            if ($event->end) {
+                if ($event->end->isPast()) {
+                    $event->finished = true;
+                }
+            } else {
+                if ($event->start->copy()->addDay()->isPast()) {
+                    $event->finished = true;
+                }
             }
         }
 
