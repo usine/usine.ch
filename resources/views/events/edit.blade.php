@@ -62,14 +62,16 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="removeFlyer" name="removeFlyer">
-              <label class="form-check-label" for="removeFlyer">
-                Supprimer le flyer
-              </label>
+        @if ($event->flyer)
+            <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="removeFlyer" name="removeFlyer">
+                  <label class="form-check-label" for="removeFlyer">
+                    Supprimer le flyer
+                  </label>
+                </div>
             </div>
-        </div>
+        @endif
 
         <button type="submit" class="btn btn-primary">Mettre à jour</button>
         <a href="{{ url()->previous() }}" class="btn btn-text">Annuler</a>
