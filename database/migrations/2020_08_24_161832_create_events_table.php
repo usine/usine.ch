@@ -24,6 +24,7 @@ class CreateEventsTable extends Migration
             $table->dateTime('start');
             $table->dateTime('end')->nullable();
             $table->string('billetterie')->nullable();
+            $table->string('flyer')->nullable();
         });
     }
 

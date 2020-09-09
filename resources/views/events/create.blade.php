@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <h1>Nouvel évènement</h1>
 
-    <form action="{{ route('events.store') }}" method="post">
+    <form action="{{ route('events.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
           <label for="title">Titre *</label>
@@ -51,6 +51,14 @@
         <div class="form-group">
           <label for="description">Description</label>
           <textarea class="form-control" id="description" name="description" rows="6">{{ old('description') }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="flyer">Flyer</label>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="flyer" name="flyer" value="{{ old('flyer') }}">
+              <label class="custom-file-label" for="flyer">Choisir un fichier</label>
+            </div>
         </div>
 
         <button type="submit" class="btn btn-primary">Créer l'évènement</button>

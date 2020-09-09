@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <h1>Modifier l'évènement</h1>
 
-    <form action="{{ route('events.update', $event) }}" method="post">
+    <form action="{{ route('events.update', $event) }}" method="post" enctype="multipart/form-data">
         @csrf
         @method('put')
         <div class="form-group">
@@ -52,6 +52,23 @@
         <div class="form-group">
           <label for="description">Description</label>
           <textarea class="form-control" id="description" name="description" rows="6">{{ old('description', $event->description) }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="flyer">Flyer (modifie le flyer actuel)</label>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="flyer" name="flyer">
+              <label class="custom-file-label" for="flyer">Choisir un fichier</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="removeFlyer" name="removeFlyer">
+              <label class="form-check-label" for="removeFlyer">
+                Supprimer le flyer
+              </label>
+            </div>
         </div>
 
         <button type="submit" class="btn btn-primary">Mettre à jour</button>

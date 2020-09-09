@@ -51,6 +51,7 @@ class EventController extends Controller
     public function store(EventRequest $request)
     {
         $event = Event::create($request->validated());
+        Event::uploadFlyer($request, $event);
         $event->venues()->sync($request->venues);
 
         return redirect()->route('events.show', compact('event'));
@@ -89,6 +90,11 @@ class EventController extends Controller
     public function update(EventRequest $request, Event $event)
     {
         $event->update($request->validated());
+        if ($request->removeFlyer) {
+            Event::removeFlyer($event);
+        } else {
+            Event::uploadFlyer($request, $event);
+        }
         $event->venues()->sync($request->venues);
 
         return redirect()->route('events.show', compact('event'));

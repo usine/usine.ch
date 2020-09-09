@@ -5,6 +5,11 @@
     <h1>{{ $event->title }}</h1>
 
     <div class="row">
+        @if ($event->flyer)
+            <div class="col-12 col-md col-lg-3">
+                <img src="{{ Storage::url($event->flyer) }}" alt="Flyer {{ $event->title }}" class="img-fluid">
+            </div>
+        @endif
         <div class="col-12 col-md">
             <p>
                 {{ $event->start }}

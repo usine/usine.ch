@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -10,6 +11,15 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Event extends Model
 {
     use Sluggable;
+
+    protected static function booted()
+    {
+        static::deleting(function ($event) {
+            if ($event->flyer) {
+                Storage::disk('public')->delete($event->flyer);
+            }
+        });
+    }
 
     /**
      * Return the sluggable configuration array for this model.
@@ -132,5 +142,27 @@ class Event extends Model
             $eventsAtDatePlus1,
             $eventsAtDatePlus2,
         ];
+    }
+
+    public static function uploadFlyer($request, $event)
+    {
+        if ($request->file('flyer')) {
+            $path = $request->file('flyer')->storeAs(
+                'events',
+                $event->slug . '-flyer.' . $request->file('flyer')->getClientOriginalExtension(),
+                'public',
+            );
+            $event->flyer = $path;
+            $event->save();
+        }
+    }
+
+    public static function removeFlyer($event)
+    {
+        if ($event->flyer) {
+            Storage::disk('public')->delete($event->flyer);
+            $event->flyer = null;
+            $event->save();
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Event;
 use Illuminate\Foundation\Http\FormRequest;
 
 class EventRequest extends FormRequest
@@ -31,6 +32,7 @@ class EventRequest extends FormRequest
             'start' => 'required|date',
             'end' => 'nullable|date|after:start',
             'billetterie' => 'nullable|string|max:255|url',
+            'flyer' => 'nullable|image',
         ];
     }
 
@@ -50,6 +52,7 @@ class EventRequest extends FormRequest
             'end.after' => 'La Fin doit être ultérieure au Début',
             'billetterie.max' => 'Le lien vers la Billetterie est trop long (max 255 caractères)',
             'billetterie.url' => 'Le lien vers la Billetterie n\'est pas une URL valide',
+            'flyer.image' => 'Le flyer doit être une image (jpeg, png, bmp, gif, svg, or webp)',
         ];
     }
 }
