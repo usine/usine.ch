@@ -1,6 +1,6 @@
 <form class="mb-5" action="{{ url()->current() }}" method="get">
-    <input type="date" name="date" value="{{ Request::get('date') }}">
-    <button type="submit" class="btn">Filtrer</button>
+    <input type="text" class="bg-white" name="date" value="{{ Request::get('date') }}" data-datepicker="date">
+    <button type="submit" class="btn btn-primary">Filtrer</button>
 </form>
 <div class="row">
     <div class="col-12 col-lg">

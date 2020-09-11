@@ -36,14 +36,14 @@
             <div class="col-12 col-md">
                 <div class="form-group">
                   <label for="start">Début *</label>
-                  <input type="datetime-local" class="form-control" name="start" id="start" value="{{ old('start') }}" required>
+                  <input type="datetime-local" class="form-control bg-white" name="start" id="start" value="{{ old('start') }}" data-datepicker="datetime" required>
                   <small class="form-text text-muted">Si l'heure de début est antérieure 5h du matin, l'évènement sera affiché avec les évènements du jour précédent</small>
                 </div>
             </div>
             <div class="col-12 col-md">
                 <div class="form-group">
                   <label for="end">Fin</label>
-                  <input type="datetime-local" class="form-control" name="end" id="end" value="{{ old('end') }}">
+                  <input type="datetime-local" class="form-control bg-white" name="end" id="end" value="{{ old('end') }}" data-datepicker="datetime">
                 </div>
             </div>
         </div>
