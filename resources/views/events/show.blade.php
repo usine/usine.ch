@@ -1,43 +1,40 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
-    <h1>{{ $event->title }}</h1>
+<div class="container">
 
-    <div class="row">
-        @if ($event->flyer)
-            <div class="col-12 col-md col-lg-3">
-                <img src="{{ Storage::url($event->flyer) }}" alt="Flyer {{ $event->title }}" class="img-fluid">
-            </div>
-        @endif
-        <div class="col-12 col-md">
-            <p>
-                {{ $event->start }}
+    @if ($event->flyer)
+        <img src="{{ Storage::url($event->flyer) }}" alt="Flyer {{ $event->title }}" class="img-fluid mb-5">
+    @endif
 
-                @if ($event->end)
-                     — {{ $event->end }}
-                @endif
-            </p>
-            <p>
-                {{ $event->price }}
-            </p>
-            @if ($event->billetterie)
-                <p>
-                    <a href="{{ $event->billetterie }}" class="btn btn-outline-primary">Billets</a>
-                </p>
+    <h1 class="text-primary">{{ $event->title }}</h1>
+
+    <div>
+        <p>
+            {{ $event->start }}
+
+            @if ($event->end)
+                 — {{ $event->end }}
             @endif
+        </p>
+        <p>
+            {{ $event->price }}
+        </p>
+        @if ($event->billetterie)
             <p>
-                @foreach ($event->venues as $venue)
-                    <a href="{{ route('venues.show', $venue) }}">{{ $venue->name }}</a>@if(!$loop->last), @endif
-                @endforeach
+                <a href="{{ $event->billetterie }}" class="btn btn-outline-primary">Billets</a>
             </p>
-        </div>
-        @if ($event->description)
-            <div class="col-12 col-md">
-                <p>{!! $event->formattedDescription !!}</p>
-            </div>
         @endif
+        <p>
+            @foreach ($event->venues as $venue)
+                <a href="{{ route('venues.show', $venue) }}">{{ $venue->name }}</a>@if(!$loop->last), @endif
+            @endforeach
+        </p>
     </div>
+
+    @if ($event->description)
+        <p class="text-block">{!! $event->formattedDescription !!}</p>
+    @endif
 
     @can('update', $event)
         <a href="{{ route('events.edit', $event) }}" class="btn btn-primary">Modifier</a>

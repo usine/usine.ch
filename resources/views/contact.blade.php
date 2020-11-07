@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
     <h1>Contact</h1>
 
     <h2 class="mt-3">L'Usine (la faîtière)</h2>

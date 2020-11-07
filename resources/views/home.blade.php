@@ -1,26 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12 col-md">
-            <h1>Aujourd'hui à L'Usine</h1>
-            @forelse ($events as $event)
-                @include('events.includes.card')
-            @empty
-                <p class="text-muted font-italic">Pas d'évènements prévu aujourd'hui 😢</p>
-            @endforelse
-            <a href="{{ route('events.index') }}">Tous les évènements →</a>
-        </div>
-        <div class="col-12 col-md">
-            <h1>{{ $latestBla->title }}</h1>
+<div class="container">
+    <section>
+        <h1 class="text-primary mb-3 h6 font-italic">Aujourd'hui à L'Usine</h1>
+        @forelse ($events as $event)
+            @include('events.includes.card')
+            @if (!$loop->last)
+                <hr>
+            @endif
+        @empty
+            <p class="text-muted font-italic">Pas d'évènements prévu aujourd'hui 😢</p>
+        @endforelse
+        <a href="{{ route('events.index') }}">Ces prochains jours →</a>
+    </section>
 
-            <p class="small text-muted">{{ $latestBla->date }}</p>
-
-            <p>{{ $latestBla->body }}</p>
-
-            <a href="{{ route('blas.index') }}">Tous les blas →</a>
-        </div>
-    </div>
+    @if ($latestBla)
+        <section class="mt-6">
+            <h1 class="text-primary h6">{{ $latestBla->title }}</h1>
+            <p>{{ $latestBla->date->isoFormat('LL') }}</p>
+            <p>{!! nl2br($latestBla->body) !!}</p>
+        </section>
+    @endif
 </div>
 @endsection

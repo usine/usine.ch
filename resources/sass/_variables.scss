@@ -1,2 +1,27 @@
-// Typography
 $font-family-sans-serif: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+$primary: #8c73dd;
+$light: #F9F9F9;
+$body-bg: $light;
+
+$enable-responsive-font-sizes: true;
+$enable-rounded: false;
+
+$spacer: 1rem !default;
+$spacers: () !default;
+$spacers: map-merge(
+  (
+    0: 0,
+    1: ($spacer * .25),
+    2: ($spacer * .5),
+    3: $spacer,
+    4: ($spacer * 1.5),
+    5: ($spacer * 3),
+    6: ($spacer * 6)
+  ),
+  $spacers
+);
+
+$container-max-widths: (
+  lg: 992px,
+);

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
     <h1>{{ $venue->name }}</h1>
 
     <section>
