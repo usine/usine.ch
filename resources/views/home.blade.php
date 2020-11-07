@@ -18,7 +18,7 @@
     @if ($latestBla)
         <section class="mt-6">
             <h1 class="text-primary h6">{{ $latestBla->title }}</h1>
-            <p>{{ $latestBla->date->isoFormat('LL') }}</p>
+            <p class="text-muted font-italic">Bla du {{ $latestBla->date->isoFormat('LL') }}</p>
             <p>{!! nl2br($latestBla->body) !!}</p>
         </section>
     @endif
