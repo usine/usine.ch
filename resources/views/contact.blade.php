@@ -30,9 +30,9 @@
                     <br>
                     {{ $venue->tel }}
                 @endif
-                @if ($venue->mail)
+                @if ($venue->email)
                     <br>
-                    <a href="mailto:{{ $venue->mail }}">{{ $venue->mail }}</a>
+                    <a href="mailto:{{ $venue->email }}">{{ $venue->email }}</a>
                 @endif
                 @if ($venue->website)
                     <br>

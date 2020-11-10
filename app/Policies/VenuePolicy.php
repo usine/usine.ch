@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Policies;
+
+use App\Venue;
+use App\User;
+use Illuminate\Auth\Access\HandlesAuthorization;
+
+class VenuePolicy
+{
+    use HandlesAuthorization;
+
+    /**
+     * Determine whether the user can view any models.
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     */
+    public function viewAny(?User $user)
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can view the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Venue  $venue
+     * @return mixed
+     */
+    public function view(?User $user, Venue $venue)
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can create models.
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     */
+    public function create(User $user)
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can update the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Venue  $venue
+     * @return mixed
+     */
+    public function update(User $user, Venue $venue)
+    {
+        return true;
+    }
+
+    /**
+     * Determine whether the user can delete the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\Venue  $venue
+     * @return mixed
+     */
+    public function delete(User $user, Venue $venue)
+    {
+        return true;
+    }
+}

@@ -20,7 +20,7 @@ class CreateVenuesTable extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('tel')->nullable();
-            $table->string('mail')->nullable();
+            $table->string('email')->nullable();
             $table->string('website')->nullable();
         });
     }

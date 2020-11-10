@@ -3,17 +3,19 @@
 @section('content')
 <div class="container">
     <h1>{{ $venue->name }}</h1>
+    @can('update', $venue)
+        <a href="{{ route('venues.edit', $venue) }}" class="btn btn-primary mb-3">Modifier l'espace</a>
+    @endcan
 
-    <section>
-        <h2>Informations</h2>
+    <section class="mt-5">
         @if ($venue->tel)
             <p>
                 {{ $venue->tel }}
             </p>
         @endif
-        @if ($venue->mail)
+        @if ($venue->email)
             <p>
-                <a href="mailto:{{ $venue->mail }}">{{ $venue->mail }}</a>
+                <a href="mailto:{{ $venue->email }}">{{ $venue->email }}</a>
             </p>
         @endif
         @if ($venue->website)
@@ -23,7 +25,7 @@
         @endif
     </section>
 
-    <section>
+    <section class="mt-5">
         <h2>Évènements</h2>
         @include('events.includes.lists')
     </section>

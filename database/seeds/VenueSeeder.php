@@ -14,14 +14,14 @@ class VenueSeeder extends Seeder
         DB::table('venues')->insert([
             'name' => 'La Makhno',
             'slug' => 'la-makhno',
-            'mail' => 'makhno@darksite.ch',
+            'email' => 'makhno@darksite.ch',
         ]);
 
         DB::table('venues')->insert([
             'name' => 'Le Zoo',
             'slug' => 'le-zoo',
             'tel' => '+41 22 321 67 49',
-            'mail' => 'info@lezoo.ch',
+            'email' => 'info@lezoo.ch',
             'website' => 'https://lezoo.ch/',
         ]);
 

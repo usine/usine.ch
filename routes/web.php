@@ -23,7 +23,7 @@ Route::get('/contact', function () {
     return view('contact', compact('venues'));
 })->name('contact');
 
-Route::resource('espaces', 'VenueController', ['names' => 'venues'])->only(['index', 'show'])->parameters([
+Route::resource('espaces', 'VenueController', ['names' => 'venues'])->except(['destroy'])->parameters([
     'espaces' => 'venue',
 ]);
 

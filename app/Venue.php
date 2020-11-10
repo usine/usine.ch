@@ -35,6 +35,13 @@ class Venue extends Model
         return 'slug';
     }
 
+    protected $fillable = [
+        'name',
+        'tel',
+        'email',
+        'website',
+    ];
+
     public function events()
     {
         return $this->belongsToMany('App\Event');

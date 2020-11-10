@@ -4,10 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\Venue;
+use App\Http\Requests\VenueRequest;
 use Illuminate\Http\Request;
 
 class VenueController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Venue::class, 'venue');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +33,7 @@ class VenueController extends Controller
      */
     public function create()
     {
-        //
+        return view('venues.create');
     }
 
     /**
@@ -36,9 +42,11 @@ class VenueController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(VenueRequest $request)
     {
-        //
+        $venue = Venue::create($request->validated());
+
+        return redirect()->route('venues.show', compact('venue'));
     }
 
     /**
@@ -67,7 +75,7 @@ class VenueController extends Controller
      */
     public function edit(Venue $venue)
     {
-        //
+        return view('venues.edit', compact('venue'));
     }
 
     /**
@@ -77,9 +85,11 @@ class VenueController extends Controller
      * @param  \App\Venue  $venue
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Venue $venue)
+    public function update(VenueRequest $request, Venue $venue)
     {
-        //
+        $venue->update($request->validated());
+
+        return redirect()->route('venues.show', compact('venue'));
     }
 
     /**
