@@ -13,8 +13,8 @@
         </div>
 
         <div class="form-group">
-          <label for="body">Bla *</label>
-          <textarea class="form-control" id="body" name="body" rows="6">{{ old('body') }}</textarea>
+          <label for="editor">Bla *</label>
+          <textarea class="form-control" name="body" rows="6" id="editor">{{ old('body') }}</textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Publier le Bla</button>
