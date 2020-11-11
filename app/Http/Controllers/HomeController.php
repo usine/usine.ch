@@ -15,7 +15,7 @@ class HomeController extends Controller
     {
         $events = Event::eventsAtDate(Carbon::today());
 
-        $latestBla = Bla::orderBy('date', 'desc')->first();
+        $latestBla = Bla::orderBy('created_at', 'desc')->first();
 
         return view('home', compact('latestBla', 'events'));
     }

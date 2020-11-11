@@ -31,4 +31,4 @@ Route::resource('agenda', 'EventController', ['names' => 'events'])->parameters(
     'agenda' => 'event',
 ]);
 
-Route::resource('blas', 'BlaController')->only(['index', 'show']);
+Route::resource('blas', 'BlaController');

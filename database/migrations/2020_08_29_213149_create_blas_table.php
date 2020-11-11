@@ -17,7 +17,6 @@ class CreateBlasTable extends Migration
             $table->id();
             $table->timestamps();
 
-            $table->dateTime('date');
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('body');

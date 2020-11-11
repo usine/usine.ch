@@ -34,7 +34,8 @@ class Bla extends Model
         return 'slug';
     }
 
-    protected $casts = [
-        'date' => 'datetime',
+    protected $fillable = [
+        'title',
+        'body',
     ];
 }

@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Bla;
+use App\Http\Requests\BlaRequest;
 use Illuminate\Http\Request;
 
 class BlaController extends Controller
 {
+    public function __construct()
+    {
+        $this->authorizeResource(Bla::class, 'bla');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +20,7 @@ class BlaController extends Controller
      */
     public function index()
     {
-        $blas = Bla::orderBy('date', 'desc')->get();
+        $blas = Bla::orderBy('created_at', 'desc')->get();
 
         return view('blas.index', compact('blas'));
     }
@@ -26,7 +32,7 @@ class BlaController extends Controller
      */
     public function create()
     {
-        //
+        return view('blas.create');
     }
 
     /**
@@ -35,9 +41,11 @@ class BlaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BlaRequest $request)
     {
-        //
+        $bla = Bla::create($request->validated());
+
+        return redirect()->route('blas.show', compact('bla'));
     }
 
     /**
@@ -59,7 +67,7 @@ class BlaController extends Controller
      */
     public function edit(Bla $bla)
     {
-        //
+        return view('blas.edit', compact('bla'));
     }
 
     /**
@@ -69,9 +77,11 @@ class BlaController extends Controller
      * @param  \App\Bla  $bla
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Bla $bla)
+    public function update(BlaRequest $request, Bla $bla)
     {
-        //
+        $bla->update($request->validated());
+
+        return redirect()->route('blas.show', compact('bla'));
     }
 
     /**
@@ -82,6 +92,8 @@ class BlaController extends Controller
      */
     public function destroy(Bla $bla)
     {
-        //
+        $bla->delete();
+
+        return redirect()->route('blas.index');
     }
 }

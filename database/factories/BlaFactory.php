@@ -9,6 +9,5 @@ $factory->define(Bla::class, function (Faker $faker) {
     return [
         'title' => $faker->text($maxNbChars = 50),
         'body' => $faker->paragraphs(3, $asText = true),
-        'date' => $faker->dateTimeThisYear(),
     ];
 });
