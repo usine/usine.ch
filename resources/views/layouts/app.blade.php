@@ -87,7 +87,9 @@
         @yield('content')
     </main>
 
-    <hr class="container">
+    <div class="container">
+        <hr>
+    </div>
 
     <footer class="container py-5">
         <p>
