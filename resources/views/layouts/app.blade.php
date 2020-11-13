@@ -113,7 +113,7 @@
         @else
             <a href="{{ route('login') }}" class="text-muted">{{ __('Connexion') }}</a>
         @endauth
-        <a href="https://contribuer.usine.ch/" class="text-muted ml-3">Contribuer au site</a>
+        <a href="{{ route('contribuer') }}" class="text-muted ml-3">Contribuer à usine.ch</a>
     </footer>
 </body>
 </html>

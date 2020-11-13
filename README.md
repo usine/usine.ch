@@ -6,7 +6,7 @@ Une version de développement est disponible: [dev.usine.ch](https://dev.usine.c
 
 ## Contribuer
 
-[Comment contribuer au site de L'Usine](https://github.com/usine/contribuer.usine.ch)
+[Comment contribuer au site de L'Usine](https://dev.usine.ch/contribuer)
 
 ## Développement local
 

@@ -23,6 +23,10 @@ Route::get('/contact', function () {
     return view('contact', compact('venues'));
 })->name('contact');
 
+Route::get('/contribuer', function () {
+    return view('contribuer');
+})->name('contribuer');
+
 Route::resource('espaces', 'VenueController', ['names' => 'venues'])->except(['destroy'])->parameters([
     'espaces' => 'venue',
 ]);
