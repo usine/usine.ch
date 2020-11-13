@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <h1>Contact</h1>
+    <h1 class="text-primary">Contact</h1>
 
-    <h2 class="mt-3">L'Usine (la faîtière)</h2>
+    <h2 class="mt-5">L'Usine (la faîtière)</h2>
     <div>
         <p>
             <b>L'Usine</b> (Permanence de l’association)<br>
@@ -21,7 +21,7 @@
         </p>
     </div>
 
-    <h2 class="mt-3">Les Espaces</h2>
+    <h2 class="mt-5">Les Espaces</h2>
     <div>
         @foreach ($venues as $venue)
             <div class="mt-3">
@@ -42,7 +42,7 @@
         @endforeach
     </div>
 
-    <h2 class="mt-3">Plan du bâtiment</h2>
+    <h2 class="mt-5">Plan du bâtiment</h2>
     <img src="/img/plan-usine.svg" class="img-fluid" alt="L'Usine - Plan du bâtiment">
 </div>
 @endsection
