@@ -4,7 +4,7 @@
 <div class="container">
     <h1 class="text-primary">{{ $news->title }}</h1>
 
-    <p>{{ $news->created_at->isoFormat('LL') }}</p>
+    <p>{{ $news->publication_date->isoFormat('LL') }}</p>
     <p>{!! nl2br($news->body) !!}</p>
 
     @can('update', $news)

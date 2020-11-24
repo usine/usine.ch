@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class News extends Model
@@ -35,7 +36,22 @@ class News extends Model
     }
 
     protected $fillable = [
+        'publication_date',
         'title',
         'body',
     ];
+
+    protected $casts = [
+        'publication_date' => 'datetime',
+    ];
+
+    public function scopePublished($query)
+    {
+        return $query->where('publication_date', '<=', now());
+    }
+
+    public function getPublicationDateFormattedForInputAttribute()
+    {
+        return Carbon::parse($this->publication_date)->format('Y-m-d\TH:i');
+    }
 }

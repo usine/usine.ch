@@ -12,7 +12,7 @@
         <a href="{{ route('news.show', $n) }}" class="mb-3 d-block text-body">
             <b>{{ $n->title }}</b>
             <br>
-            {{ $n->created_at->isoFormat('LL') }}
+            {{ $n->publication_date->isoFormat('LL') }}
         </a>
         @if (!$loop->last)
             <hr>

@@ -18,7 +18,7 @@
     @if ($latestNews)
         <section class="mt-6">
             <h1 class="text-primary h6">{{ $latestNews->title }}</h1>
-            <p class="text-muted font-italic">Actualité du {{ $latestNews->created_at->isoFormat('LL') }}</p>
+            <p class="text-muted font-italic">Actualité du {{ $latestNews->publication_date->isoFormat('LL') }}</p>
             <p>{!! nl2br($latestNews->body) !!}</p>
         </section>
     @endif

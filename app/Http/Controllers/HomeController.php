@@ -15,7 +15,7 @@ class HomeController extends Controller
     {
         $events = Event::eventsAtDate(Carbon::today());
 
-        $latestNews = News::orderBy('created_at', 'desc')->first();
+        $latestNews = News::published()->orderBy('publication_date', 'desc')->first();
 
         return view('home', compact('latestNews', 'events'));
     }

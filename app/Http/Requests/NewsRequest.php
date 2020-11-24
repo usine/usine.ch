@@ -17,6 +17,15 @@ class NewsRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        if (!$this->publication_date) {
+            $this->merge([
+                'publication_date' => now(),
+            ]);
+        }
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -25,6 +34,7 @@ class NewsRequest extends FormRequest
     public function rules()
     {
         return [
+            'publication_date' => 'nullable|date',
             'title' => 'required|string|max:255',
             'body' => 'required|string',
         ];

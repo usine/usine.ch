@@ -9,6 +9,12 @@
         @method('put')
 
         <div class="form-group">
+          <label for="publication_date">Date de publication</label>
+          <input type="datetime-local" class="form-control bg-white" name="publication_date" id="publication_date" value="{{ old('publication_date', $news->publicationDateFormattedForInput) }}" data-datepicker="datetime">
+          <small class="form-text text-muted">Si une date de publication n'est pas renseignée, l'actualité sera publiée au moment de l'enregistrement</small>
+        </div>
+
+        <div class="form-group">
           <label for="title">Titre *</label>
           <input type="text" class="form-control" name="title" id="title" value="{{ old('title', $news->title) }}">
         </div>

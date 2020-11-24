@@ -20,7 +20,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::orderBy('created_at', 'desc')->get();
+        $news = null;
+        if (auth()->user()) {
+            $news = News::orderBy('publication_date', 'desc')->get();
+        } else {
+            $news = News::published()->orderBy('publication_date', 'desc')->get();
+        }
 
         return view('news.index', compact('news'));
     }
