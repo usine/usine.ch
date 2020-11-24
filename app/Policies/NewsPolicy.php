@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Bla;
+use App\News;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class BlaPolicy
+class NewsPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class BlaPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Bla  $bla
+     * @param  \App\News  $news
      * @return mixed
      */
-    public function view(?User $user, Bla $bla)
+    public function view(?User $user, News $news)
     {
         return true;
     }
@@ -48,10 +48,10 @@ class BlaPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Bla  $bla
+     * @param  \App\News  $news
      * @return mixed
      */
-    public function update(User $user, Bla $bla)
+    public function update(User $user, News $news)
     {
         return true;
     }
@@ -60,10 +60,10 @@ class BlaPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\User  $user
-     * @param  \App\Bla  $bla
+     * @param  \App\News  $news
      * @return mixed
      */
-    public function delete(User $user, Bla $bla)
+    public function delete(User $user, News $news)
     {
         return true;
     }

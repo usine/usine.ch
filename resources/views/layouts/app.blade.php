@@ -41,7 +41,7 @@
                         <a href="{{ route('events.index') }}" class="nav-link {{ (request()->is('agenda*')) ? 'active' : '' }}">Agenda</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('blas.index') }}" class="nav-link {{ (request()->is('blas*')) ? 'active' : '' }}">Blas</a>
+                        <a href="{{ route('news.index') }}" class="nav-link {{ (request()->is('news*')) ? 'active' : '' }}">Actualités</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{ route('venues.index') }}" class="nav-link {{ (request()->is('espaces*')) ? 'active' : '' }}">Espaces</a>

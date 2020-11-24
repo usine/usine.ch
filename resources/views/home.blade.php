@@ -15,11 +15,11 @@
         <a href="{{ route('events.index') }}">Ces prochains jours →</a>
     </section>
 
-    @if ($latestBla)
+    @if ($latestNews)
         <section class="mt-6">
-            <h1 class="text-primary h6">{{ $latestBla->title }}</h1>
-            <p class="text-muted font-italic">Bla du {{ $latestBla->created_at->isoFormat('LL') }}</p>
-            <p>{!! nl2br($latestBla->body) !!}</p>
+            <h1 class="text-primary h6">{{ $latestNews->title }}</h1>
+            <p class="text-muted font-italic">Actualité du {{ $latestNews->created_at->isoFormat('LL') }}</p>
+            <p>{!! nl2br($latestNews->body) !!}</p>
         </section>
     @endif
 </div>

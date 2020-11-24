@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Bla;
+use App\News;
 use App\Event;
 
 use Carbon\Carbon;
@@ -15,8 +15,8 @@ class HomeController extends Controller
     {
         $events = Event::eventsAtDate(Carbon::today());
 
-        $latestBla = Bla::orderBy('created_at', 'desc')->first();
+        $latestNews = News::orderBy('created_at', 'desc')->first();
 
-        return view('home', compact('latestBla', 'events'));
+        return view('home', compact('latestNews', 'events'));
     }
 }

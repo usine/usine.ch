@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <h1>Nouveau Bla</h1>
+    <h1>Nouvelle actualité</h1>
 
-    <form action="{{ route('blas.store') }}" method="post">
+    <form action="{{ route('news.store') }}" method="post">
         @csrf
 
         <div class="form-group">
@@ -13,11 +13,11 @@
         </div>
 
         <div class="form-group">
-          <label for="editor">Bla *</label>
+          <label for="editor">Texte *</label>
           <textarea class="form-control" name="body" rows="6" id="editor">{{ old('body') }}</textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Publier le Bla</button>
+        <button type="submit" class="btn btn-primary">Publier l'actualité</button>
         <a href="{{ url()->previous() }}" class="btn btn-text">Annuler</a>
     </form>
 </div>

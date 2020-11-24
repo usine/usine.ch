@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Bla;
-use App\Http\Requests\BlaRequest;
+use App\News;
+use App\Http\Requests\NewsRequest;
 use Illuminate\Http\Request;
 
-class BlaController extends Controller
+class NewsController extends Controller
 {
     public function __construct()
     {
-        $this->authorizeResource(Bla::class, 'bla');
+        $this->authorizeResource(News::class, 'news');
     }
 
     /**
@@ -20,9 +20,9 @@ class BlaController extends Controller
      */
     public function index()
     {
-        $blas = Bla::orderBy('created_at', 'desc')->get();
+        $news = News::orderBy('created_at', 'desc')->get();
 
-        return view('blas.index', compact('blas'));
+        return view('news.index', compact('news'));
     }
 
     /**
@@ -32,7 +32,7 @@ class BlaController extends Controller
      */
     public function create()
     {
-        return view('blas.create');
+        return view('news.create');
     }
 
     /**
@@ -41,59 +41,59 @@ class BlaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(BlaRequest $request)
+    public function store(NewsRequest $request)
     {
-        $bla = Bla::create($request->validated());
+        $news = News::create($request->validated());
 
-        return redirect()->route('blas.show', compact('bla'));
+        return redirect()->route('news.show', compact('news'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Bla  $bla
+     * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function show(Bla $bla)
+    public function show(News $news)
     {
-        return view('blas.show', compact('bla'));
+        return view('news.show', compact('news'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Bla  $bla
+     * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function edit(Bla $bla)
+    public function edit(News $news)
     {
-        return view('blas.edit', compact('bla'));
+        return view('news.edit', compact('news'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Bla  $bla
+     * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function update(BlaRequest $request, Bla $bla)
+    public function update(NewsRequest $request, News $news)
     {
-        $bla->update($request->validated());
+        $news->update($request->validated());
 
-        return redirect()->route('blas.show', compact('bla'));
+        return redirect()->route('news.show', compact('news'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Bla  $bla
+     * @param  \App\News  $news
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Bla $bla)
+    public function destroy(News $news)
     {
-        $bla->delete();
+        $news->delete();
 
-        return redirect()->route('blas.index');
+        return redirect()->route('news.index');
     }
 }

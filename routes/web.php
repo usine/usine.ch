@@ -35,4 +35,6 @@ Route::resource('agenda', 'EventController', ['names' => 'events'])->parameters(
     'agenda' => 'event',
 ]);
 
-Route::resource('blas', 'BlaController');
+Route::resource('actualites', 'NewsController', ['names' => 'news'])->parameters([
+    'actualites' => 'news',
+]);

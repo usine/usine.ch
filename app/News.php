@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Cviebrock\EloquentSluggable\Sluggable;
 
-class Bla extends Model
+class News extends Model
 {
     use Sluggable;
 

@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests;
 
-use App\Bla;
+use App\News;
 use Illuminate\Foundation\Http\FormRequest;
 
-class BlaRequest extends FormRequest
+class NewsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
