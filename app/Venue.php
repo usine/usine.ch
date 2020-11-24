@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 use Carbon\Carbon;
 use Cviebrock\EloquentSluggable\Sluggable;
@@ -10,6 +11,15 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Venue extends Model
 {
     use Sluggable;
+
+    protected static function booted()
+    {
+        static::deleting(function ($venue) {
+            if ($venue->logo) {
+                Storage::disk('public')->delete($venue->logo);
+            }
+        });
+    }
 
     /**
      * Return the sluggable configuration array for this model.
@@ -46,5 +56,27 @@ class Venue extends Model
     public function events()
     {
         return $this->belongsToMany('App\Event');
+    }
+
+    public static function uploadLogo($request, $venue)
+    {
+        if ($request->file('logo')) {
+            $path = $request->file('logo')->storeAs(
+                'espaces',
+                $venue->slug . '-logo.' . $request->file('logo')->getClientOriginalExtension(),
+                'public',
+            );
+            $venue->logo = $path;
+            $venue->save();
+        }
+    }
+
+    public static function removeLogo($venue)
+    {
+        if ($venue->logo) {
+            Storage::disk('public')->delete($venue->logo);
+            $venue->logo = null;
+            $venue->save();
+        }
     }
 }

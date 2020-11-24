@@ -22,6 +22,8 @@ class CreateVenuesTable extends Migration
 
             $table->text('description')->nullable();
 
+            $table->string('logo')->nullable();
+
             $table->string('tel')->nullable();
             $table->string('email')->nullable();
             $table->string('website')->nullable();

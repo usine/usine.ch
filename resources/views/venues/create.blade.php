@@ -4,11 +4,22 @@
 <div class="container">
     <h1>Nouvel espace</h1>
 
-    <form action="{{ route('venues.store') }}" method="post">
+    <form action="{{ route('venues.store') }}" method="post" enctype="multipart/form-data">
         @csrf
-        <div class="form-group">
-          <label for="name">Nom de l'espace *</label>
-          <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}">
+
+        <div class="row">
+            <div class="form-group col-md">
+              <label for="name">Nom de l'espace *</label>
+              <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}">
+            </div>
+
+            <div class="form-group col-md">
+                <label for="logo">Logo</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="logo" name="logo" value="{{ old('logo') }}">
+                  <label class="custom-file-label" for="logo">Choisir un fichier</label>
+                </div>
+            </div>
         </div>
 
         <div class="form-group">

@@ -30,6 +30,7 @@ class VenueRequest extends FormRequest
             'tel' => 'nullable|string|max:255',
             'email' => 'nullable|email',
             'website' => 'nullable|url|max:255',
+            'logo' => 'nullable|image',
         ];
     }
 
@@ -48,6 +49,7 @@ class VenueRequest extends FormRequest
             'email.max' => 'L\'email est trop long (max 255 caractères)',
             'website.url' => 'Le site doit être une URL valide',
             'website.max' => 'Le site est trop long (max 255 caractères)',
+            'logo.image' => 'Le logo doit être une image (jpeg, png, bmp, gif, svg, or webp)',
         ];
     }
 }

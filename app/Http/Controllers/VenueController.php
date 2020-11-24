@@ -45,6 +45,7 @@ class VenueController extends Controller
     public function store(VenueRequest $request)
     {
         $venue = Venue::create($request->validated());
+        Venue::uploadLogo($request, $venue);
 
         return redirect()->route('venues.show', compact('venue'));
     }
@@ -88,6 +89,11 @@ class VenueController extends Controller
     public function update(VenueRequest $request, Venue $venue)
     {
         $venue->update($request->validated());
+        if ($request->removeLogo) {
+            Venue::removeLogo($venue);
+        } else {
+            Venue::uploadLogo($request, $venue);
+        }
 
         return redirect()->route('venues.show', compact('venue'));
     }
