@@ -23,6 +23,10 @@ Route::get('/contact', function () {
     return view('contact', compact('venues'));
 })->name('contact');
 
+Route::get('/usine', function () {
+    return view('usine');
+})->name('usine');
+
 Route::get('/contribuer', function () {
     return view('contribuer');
 })->name('contribuer');

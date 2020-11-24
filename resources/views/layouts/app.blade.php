@@ -47,6 +47,9 @@
                         <a href="{{ route('venues.index') }}" class="nav-link {{ (request()->is('espaces*')) ? 'active' : '' }}">Espaces</a>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('usine') }}" class="nav-link {{ (request()->is('usine')) ? 'active' : '' }}">L'Usine?</a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('contact') }}" class="nav-link {{ (request()->is('contact')) ? 'active' : '' }}">Contact</a>
                     </li>
                     @auth
