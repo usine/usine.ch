@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-light py-3 py-md-5">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="/img/usine.svg" height="30" width="157" alt="{{ config('app.name', 'L\'Usine') }}" loading="lazy">
+                <img src="/img/usine.svg" height="30" width="157" alt="{{ config('app.name', 'L\'Usine') }}">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Afficher/cacher la navigation') }}">
                 <span class="navbar-toggler-icon"></span>
