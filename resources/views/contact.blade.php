@@ -4,20 +4,20 @@
 <div class="container">
     <h1 class="text-primary">Contact</h1>
 
-    <h2 class="mt-5">L'Usine (la faîtière)</h2>
+    <h2 class="mt-5">L'Usine</h2>
     <div>
         <p>
-            <b>L'Usine</b> (Permanence de l’association)<br>
+            <b>La permanence</b><br>
             4, Place des Volontaires<br>
-            1204 Genève / Suisse<br>
+            1204 Genève, Suisse<br>
             <a href="tel:+41227813490">+41 22 781 34 90</a>
             <br>
             <a href="mailto:usine@usine.ch">usine@usine.ch</a>
         </p>
         <p>
-            La permanence de L’Usine est ouverte du Lundi au Vendredi de 14h à 18h
+            La permanence de L’Usine est ouverte du lundi au jeudi
             <br>
-            bureau : 4, Place des Volontaires – 2ème étage, à droite.
+            Bureau: 4, Place des Volontaires – 2ème étage, à droite.
         </p>
     </div>
 

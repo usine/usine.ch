@@ -93,17 +93,17 @@
 
     <footer class="container py-5">
         <p>
-            <b>L'Usine</b> (Permanence de l’association)<br>
+            <b>L'Usine</b> / La permanence<br>
             4, Place des Volontaires<br>
-            1204 Genève / Suisse<br>
+            1204 Genève, Suisse<br>
             <a href="tel:+41227813490">+41 22 781 34 90</a>
             <br>
             <a href="mailto:usine@usine.ch">usine@usine.ch</a>
         </p>
         <p>
-            La permanence de L’Usine est ouverte du Lundi au Vendredi de 14h à 18h
+            La permanence de L’Usine est ouverte du lundi au jeudi
             <br>
-            bureau : 4, Place des Volontaires – 2ème étage, à droite.
+            Bureau: 4, Place des Volontaires – 2ème étage, à droite.
         </p>
 
         @auth
