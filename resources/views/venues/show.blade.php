@@ -8,6 +8,11 @@
     @endcan
 
     <section class="mt-5">
+        @if ($venue->description)
+            <p>
+                {!! nl2br(e($venue->description)) !!}
+            </p>
+        @endif
         @if ($venue->tel)
             <p>
                 {{ $venue->tel }}

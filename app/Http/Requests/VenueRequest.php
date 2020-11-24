@@ -26,6 +26,7 @@ class VenueRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
             'tel' => 'nullable|string|max:255',
             'email' => 'nullable|email',
             'website' => 'nullable|url|max:255',

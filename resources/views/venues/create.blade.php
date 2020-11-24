@@ -11,6 +11,11 @@
           <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}">
         </div>
 
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3">{{ old('description') }}</textarea>
+        </div>
+
         <div class="row">
             <div class="col-12 col-md">
                 <div class="form-group">
