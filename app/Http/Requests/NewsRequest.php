@@ -49,7 +49,7 @@ class NewsRequest extends FormRequest
     {
         return [
             'title.required' => 'Le titre est obligatoire',
-            'body.required' => 'Le corps est obligatoire',
+            'body.required' => 'Le texte est obligatoire',
         ];
     }
 }
