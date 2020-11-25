@@ -36,7 +36,7 @@
             </div>
 
             @if ($event->description)
-                <p class="text-block">{!! $event->formattedDescription !!}</p>
+                <p class="text-block">{!! nl2br($event->description) !!}</p>
             @endif
         </div>
     </div>
