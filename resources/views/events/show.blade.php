@@ -14,11 +14,7 @@
 
             <div>
                 <p>
-                    {{ $event->start }}
-
-                    @if ($event->end)
-                         — {{ $event->end }}
-                    @endif
+                    {{ $event->displayDate }}
                 </p>
                 <p>
                     {{ $event->price }}

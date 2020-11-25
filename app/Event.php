@@ -64,6 +64,21 @@ class Event extends Model
         return $this->belongsToMany('App\Venue');
     }
 
+    public function getDisplayDateAttribute()
+    {
+        $date = ucfirst($this->start->isoFormat('LLLL'));
+
+        if ($this->end) {
+            if ($this->start->isSameDay($this->end)) {
+                $date = $date . ' - ' . $this->end->isoFormat('H:m');
+            } else {
+                $date = $date . ' - ' . ucfirst($this->end->isoFormat('LLLL'));
+            }
+        }
+
+        return $date;
+    }
+
     public function getVenuesListAttribute()
     {
         return $this->venues->implode('name', ', ');
