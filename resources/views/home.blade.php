@@ -5,7 +5,7 @@
     <section>
         <h1 class="text-primary mb-3 h6 font-italic">Aujourd'hui à L'Usine</h1>
         @forelse ($events as $event)
-            @include('events.includes.card-home')
+            @include('events.includes.card')
         @empty
             <p class="text-muted font-italic">Pas d'évènements prévu aujourd'hui 😢</p>
         @endforelse
