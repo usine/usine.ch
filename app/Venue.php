@@ -48,6 +48,7 @@ class Venue extends Model
     protected $fillable = [
         'name',
         'description',
+        'access',
         'tel',
         'email',
         'website',

@@ -27,6 +27,7 @@ class VenueRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
+            'access' => 'nullable|string|max:255',
             'tel' => 'nullable|string|max:255',
             'email' => 'nullable|email',
             'website' => 'nullable|url|max:255',
@@ -44,6 +45,7 @@ class VenueRequest extends FormRequest
         return [
             'name.required' => 'Le nom est obligatoire',
             'name.max' => 'Le nom est trop long (max 255 caractères)',
+            'access.max' => 'Le champ accès est trop long (max 255 caractères)',
             'tel.max' => 'Le numéro de téléphone est trop long (max 255 caractères)',
             'email.email' => 'L\'email doit être valide',
             'email.max' => 'L\'email est trop long (max 255 caractères)',

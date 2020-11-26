@@ -19,21 +19,7 @@
                 {!! nl2br(e($venue->description)) !!}
             </p>
         @endif
-        @if ($venue->tel)
-            <p>
-                {{ $venue->tel }}
-            </p>
-        @endif
-        @if ($venue->email)
-            <p>
-                <a href="mailto:{{ $venue->email }}">{{ $venue->email }}</a>
-            </p>
-        @endif
-        @if ($venue->website)
-            <p>
-                <a href="{{ $venue->website }}">{{ $venue->website }}</a>
-            </p>
-        @endif
+        @include('venues.includes.contact')
     </section>
 
     <section class="mt-5">

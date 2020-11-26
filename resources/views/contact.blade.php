@@ -25,19 +25,7 @@
     <div>
         @foreach ($venues as $venue)
             <div class="mt-3">
-                <b>{{ $venue->name }}</b>
-                @if ($venue->tel)
-                    <br>
-                    {{ $venue->tel }}
-                @endif
-                @if ($venue->email)
-                    <br>
-                    <a href="mailto:{{ $venue->email }}">{{ $venue->email }}</a>
-                @endif
-                @if ($venue->website)
-                    <br>
-                    <a href="{{ $venue->website }}">{{ $venue->website }}</a>
-                @endif
+                @include('venues.includes.card')
             </div>
         @endforeach
     </div>
