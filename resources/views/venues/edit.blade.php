@@ -8,29 +8,32 @@
         @csrf
         @method('put')
 
-        <div class="form-group">
-          <label for="name">Nom de l'espace *</label>
-          <input type="text" class="form-control" name="name" id="name" value="{{ old('name', $venue->name) }}">
-        </div>
-
-        <div class="form-group">
-            <label for="logo">Logo (modifie le logo actuel)</label>
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="logo" name="logo">
-              <label class="custom-file-label" for="logo">Choisir un fichier</label>
+        <div class="form-row">
+            <div class="form-group col-md">
+              <label for="name">Nom de l'espace *</label>
+              <input type="text" class="form-control" name="name" id="name" value="{{ old('name', $venue->name) }}">
             </div>
-        </div>
 
-        @if ($venue->logo)
-            <div class="form-group">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="removeLogo" name="removeLogo">
-                  <label class="form-check-label" for="removeLogo">
-                    Supprimer le logo
-                  </label>
+            <div class="col-md">
+                <div class="form-group">
+                    <label for="logo">Logo (modifie le logo actuel)</label>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="logo" name="logo">
+                      <label class="custom-file-label" for="logo">Choisir un fichier</label>
+                    </div>
                 </div>
+                @if ($venue->logo)
+                    <div class="form-group">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="removeLogo" name="removeLogo">
+                          <label class="form-check-label" for="removeLogo">
+                            Supprimer le logo
+                          </label>
+                        </div>
+                    </div>
+                @endif
             </div>
-        @endif
+        </div>
 
         <div class="form-group">
             <label for="description">Description</label>
