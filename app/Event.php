@@ -70,7 +70,7 @@ class Event extends Model
 
         if ($this->end) {
             if ($this->start->isSameDay($this->end)) {
-                $date = $date . ' - ' . $this->end->isoFormat('H:m');
+                $date = $date . ' - ' . $this->end->format('H:i');
             } else {
                 $date = $date . ' - ' . ucfirst($this->end->isoFormat('LLLL'));
             }
