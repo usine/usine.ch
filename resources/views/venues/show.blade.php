@@ -23,8 +23,15 @@
     </section>
 
     <section class="mt-5">
-        <h2>Évènements</h2>
-        @include('events.includes.lists')
+        <h2>Évènements à venir</h2>
+        @forelse ($events as $event)
+            @include('events.includes.card')
+            @if (!$loop->last)
+                <hr>
+            @endif
+        @empty
+            <p class="text-muted font-italic">Pas d'évènements prévus 😢</p>
+        @endforelse
     </section>
 </div>
 @endsection

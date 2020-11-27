@@ -5,9 +5,13 @@
         @endif
     </div>
     <div>
-        {{ $event->start->format('H:i') }}
-        @if ($event->end)
-             — {{ $event->end->format('H:i') }}
+        @if ($event->start->isSameDay(now()))
+            {{ $event->start->format('H:i') }}
+            @if ($event->end)
+                 — {{ $event->end->format('H:i') }}
+            @endif
+        @else
+            {{ $event->displayDate }}
         @endif
         <br>
         <span class="font-weight-bold">{{ $event->title }}</span>

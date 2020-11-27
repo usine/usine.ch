@@ -58,14 +58,10 @@ class VenueController extends Controller
      */
     public function show(Request $request, Venue $venue)
     {
-        [
-            $date,
-            $eventsAtDate,
-            $eventsAtDatePlus1,
-            $eventsAtDatePlus2
-        ] = Event::eventsForThreeDays($request->query('date'), $venue->id);
+        $today = now()->startOfDay();
+        $events = $venue->events->where('start', '>', $today)->sortBy('start');
 
-        return view('venues.show', compact(['venue', 'date', 'eventsAtDate', 'eventsAtDatePlus1', 'eventsAtDatePlus2']));
+        return view('venues.show', compact(['venue', 'events']));
     }
 
     /**
