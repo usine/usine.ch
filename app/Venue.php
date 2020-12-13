@@ -80,4 +80,14 @@ class Venue extends Model
             $venue->save();
         }
     }
+
+    public function getLogo600Attribute()
+    {
+        return '/img/cache/venue600/' . $this->logo;
+    }
+
+    public function getLogo962Attribute()
+    {
+        return '/img/cache/venue962/' . $this->logo;
+    }
 }

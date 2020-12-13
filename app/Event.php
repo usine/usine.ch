@@ -168,4 +168,14 @@ class Event extends Model
             $event->save();
         }
     }
+
+    public function getFlyer200Attribute()
+    {
+        return '/img/cache/flyer200/' . $this->flyer;
+    }
+
+    public function getFlyer932Attribute()
+    {
+        return '/img/cache/flyer932/' . $this->flyer;
+    }
 }

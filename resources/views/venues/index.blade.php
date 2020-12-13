@@ -13,7 +13,7 @@
                 <a href="{{ route('venues.show', $venue) }}" class="text-body">
                     <div class="card h-100 border-0">
                         @if ($venue->logo)
-                            <img src="{{ Storage::url($venue->logo) }}" alt="Logo {{ $venue->name }}" class="card-img-top p-3">
+                            <img src="{{ $venue->logo600 }}" alt="Logo {{ $venue->name }}" class="card-img-top p-3">
                         @endif
                         <div class="card-body d-flex align-items-end">
                             <h5 class="card-title mb-0">{{ $venue->name }}</h5>

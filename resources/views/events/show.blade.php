@@ -28,7 +28,9 @@
     <div class="row mt-5">
         @if ($event->flyer)
             <div class="col-md mb-4">
-                <img src="{{ Storage::url($event->flyer) }}" alt="Flyer {{ $event->title }}" class="img-fluid">
+                <a href="{{ Storage::url($event->flyer) }}">
+                    <img src="{{ $event->flyer932 }}" alt="Flyer {{ $event->title }}" class="img-fluid">
+                </a>
             </div>
         @endif
         <div class="col-md">

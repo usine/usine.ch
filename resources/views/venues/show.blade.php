@@ -4,7 +4,9 @@
 <div class="container">
     @if ($venue->logo)
         <div class="text-center mb-5">
-            <img src="{{ Storage::url($venue->logo) }}" alt="Logo {{ $venue->name }}" class="img-fluid">
+            <a href="{{ Storage::url($venue->logo) }}">
+                <img src="{{ $venue->logo962 }}" alt="Logo {{ $venue->name }}" class="img-fluid">
+            </a>
         </div>
     @endif
 
