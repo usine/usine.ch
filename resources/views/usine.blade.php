@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-primary mb-5">L'Usine?</h1>
+    <img src="/img/usine-batiment.jpg" alt="L'Usine - Photo du bâtiment depuis la place des Volontaires" class="img-fluid mb-5">
+
+    <h1 class="text-primary">L'Usine?</h1>
 
     <p>
         Ouverte depuis 1989, L’Usine est un centre culturel autogéré important en Suisse et plébiscité par ses voisin-e-s européen-ne-s. L’association faîtière revendique une éthique de travail fondée sur l’autogestion, le multiculturalisme et l’ouverture aux autres.
