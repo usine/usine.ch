@@ -13,7 +13,7 @@
         <div class="form-row">
             <div class="form-group col-md">
               <label for="name">Nom de l'espace *</label>
-              <input type="text" class="form-control" name="name" id="name" value="{{ old('name', $venue->name) }}">
+              <input type="text" class="form-control" name="name" id="name" value="{{ old('name', $venue->name) }}" required>
             </div>
 
             <div class="col-md">

@@ -12,7 +12,7 @@
         <div class="row">
             <div class="form-group col-md">
               <label for="name">Nom de l'espace *</label>
-              <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}">
+              <input type="text" class="form-control" name="name" id="name" value="{{ old('name') }}" required>
             </div>
 
             <div class="form-group col-md">
