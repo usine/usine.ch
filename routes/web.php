@@ -42,3 +42,7 @@ Route::resource('agenda', 'EventController', ['names' => 'events'])->parameters(
 Route::resource('actualites', 'NewsController', ['names' => 'news'])->parameters([
     'actualites' => 'news',
 ]);
+
+Route::resource('vox', 'VoxController', ['names' => 'vox'])->parameters([
+    'voxes' => 'vox',
+]);

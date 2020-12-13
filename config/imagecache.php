@@ -57,6 +57,7 @@ return [
         'flyer932' => 'App\Image\Filters\Flyer932',
         'venue600' => 'App\Image\Filters\Venue600',
         'venue962' => 'App\Image\Filters\Venue962',
+        'vox600' => 'App\Image\Filters\Vox600',
     ],
 
     /*
