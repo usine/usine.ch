@@ -39,6 +39,9 @@
         @empty
             <p class="text-muted fst-italic">Pas d'évènements prévus</p>
         @endforelse
+        @can('create', App\Event::class)
+            <a href="{{ route('events.create') }}" class="btn btn-primary mb-3">Ajouter un évènement</a>
+        @endcan
     </section>
 </div>
 @endsection
