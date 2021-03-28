@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Vox;
+use App\Models\Vox;
 use App\Http\Requests\VoxRequest;
 use Illuminate\Http\Request;
 

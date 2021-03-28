@@ -37,7 +37,7 @@
                 <hr>
             @endif
         @empty
-            <p class="text-muted font-italic">Pas d'évènements prévus 😢</p>
+            <p class="text-muted fst-italic">Pas d'évènements prévus</p>
         @endforelse
     </section>
 </div>

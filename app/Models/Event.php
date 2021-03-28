@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
@@ -61,7 +61,7 @@ class Event extends Model
 
     public function venues()
     {
-        return $this->belongsToMany('App\Venue');
+        return $this->belongsToMany('App\Models\Venue');
     }
 
     public function getDisplayDateAttribute()

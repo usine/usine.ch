@@ -3,8 +3,8 @@
 @section('content')
 <div class="container">
     <h1 class="text-primary">{{ $news->title }}</h1>
+    <p class="text-muted fst-italic">Actualité du {{ $news->publication_date->isoFormat('LL') }}</p>
 
-    <p>{{ $news->publication_date->isoFormat('LL') }}</p>
     <p>{!! nl2br($news->body) !!}</p>
 
     @can('update', $news)

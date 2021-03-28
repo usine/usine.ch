@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Vox;
-use App\User;
+use App\Models\Vox;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class VoxPolicy

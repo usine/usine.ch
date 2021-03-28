@@ -21,7 +21,7 @@
         </p>
     </div>
 
-    <h2 class="mt-5">Les Espaces</h2>
+    <h2 class="mt-5">Les espaces</h2>
     <div>
         @foreach ($venues as $venue)
             <div class="mt-3">

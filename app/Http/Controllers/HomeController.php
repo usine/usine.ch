@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\News;
-use App\Event;
+use App\Models\News;
+use App\Models\Event;
 
 use Carbon\Carbon;
 

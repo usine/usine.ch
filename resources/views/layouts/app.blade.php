@@ -27,13 +27,13 @@
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="/img/usine.svg" height="30" width="157" alt="{{ config('app.name', 'L\'Usine') }}">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Afficher/cacher la navigation') }}">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Afficher/cacher la navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a href="{{ route('home') }}" class="nav-link {{ (request()->is('/')) ? 'active' : '' }}">Accueil</a>
                     </li>
@@ -47,7 +47,7 @@
                         <a href="{{ route('venues.index') }}" class="nav-link {{ (request()->is('espaces*')) ? 'active' : '' }}">Espaces</a>
                     </li>
                     <li class="nav-item dropdown {{ (request()->is('usine') || request()->is('vox')) ? 'active' : '' }}">
-                        <a id="navbarDropdownUsine" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdownUsine" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             L'Usine <span class="caret"></span>
                         </a>
 
@@ -61,7 +61,7 @@
                     </li>
                     @auth
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -117,15 +117,11 @@
         </p>
 
         @auth
-            <a class="text-muted" href="{{ route('logout') }}"
-               onclick="event.preventDefault();
-                             document.getElementById('logout-form').submit();">
-                {{ __('Déconnexion') }}
-            </a>
+            <a class="text-muted" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Déconnexion</a>
         @else
-            <a href="{{ route('login') }}" class="text-muted">{{ __('Connexion') }}</a>
+            <a href="{{ route('login') }}" class="text-muted">Connexion</a>
         @endauth
-        <a href="{{ route('contribuer') }}" class="text-muted ml-3">Contribuer à usine.ch</a>
+        <a href="{{ route('contribuer') }}" class="text-muted ms-3">Contribuer à usine.ch</a>
     </footer>
 </body>
 </html>

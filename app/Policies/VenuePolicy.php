@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\Venue;
-use App\User;
+use App\Models\Venue;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class VenuePolicy

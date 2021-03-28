@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Event;
-use App\Venue;
+use App\Models\Event;
+use App\Models\Venue;
 use App\Http\Requests\VenueRequest;
 use Illuminate\Http\Request;
 

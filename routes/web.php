@@ -18,7 +18,7 @@ Auth::routes(['register' => false]);
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/contact', function () {
-    $venues = App\Venue::orderBy('name')->get();
+    $venues = App\Models\Venue::orderBy('name')->get();
 
     return view('contact', compact('venues'));
 })->name('contact');
