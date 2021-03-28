@@ -72,7 +72,7 @@ class Vox extends Model
         if ($request->file('thumbnail')) {
             $path = $request->file('thumbnail')->storeAs(
                 'voxusini',
-                'vox-' . $vox->date->year . '-' . $vox->date->month . '-' . $vox->slug . '-thumbnail' . $request->file('thumbnail')->getClientOriginalExtension(),
+                'vox-' . $vox->date->year . '-' . $vox->date->month . '-' . $vox->slug . '-thumbnail.' . $request->file('thumbnail')->getClientOriginalExtension(),
                 'public',
             );
             $vox->thumbnail = $path;
@@ -85,7 +85,7 @@ class Vox extends Model
         if ($request->file('vox')) {
             $path = $request->file('vox')->storeAs(
                 'voxusini',
-                'vox-' . $vox->date->year . '-' . $vox->date->month . '-' . $vox->slug . $request->file('vox')->getClientOriginalExtension(),
+                'vox-' . $vox->date->year . '-' . $vox->date->month . '-' . $vox->slug . '.' . $request->file('vox')->getClientOriginalExtension(),
                 'public',
             );
             $vox->vox = $path;
