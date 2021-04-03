@@ -20,13 +20,13 @@
             </div>
 
             <div class="col-12 col-md">
-                <label for="logo" class="form-label">voxUsini (PDF) *</label>
-                <input class="form-control" type="file" id="vox" name="vox" value="{{ old('vox') }}" required>
+                <label for="logo" class="form-label">voxUsini (PDF)</label>
+                <input class="form-control" type="file" id="vox" name="vox" value="{{ old('vox') }}">
             </div>
 
             <div class="col-12 col-md">
-                <label for="thumbnail" class="form-label">Miniature (image) *</label>
-                <input class="form-control" type="file" id="thumbnail" name="thumbnail" value="{{ old('thumbnail') }}" required>
+                <label for="thumbnail" class="form-label">Miniature (image)</label>
+                <input class="form-control" type="file" id="thumbnail" name="thumbnail" value="{{ old('thumbnail') }}">
             </div>
         </div>
 
