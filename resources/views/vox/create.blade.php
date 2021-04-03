@@ -15,7 +15,7 @@
 
             <div class="col-12">
               <label for="date" class="form-label">Date *</label>
-              <input type="month" class="form-control" name="date" id="date" value="{{ old('date') }}" required>
+              <input type="month" class="form-control" name="date" id="date" value="{{ old('date') }}" data-datepicker="month" required>
             </div>
 
             <div class="col-12 col-md">

@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 import { French } from "flatpickr/dist/l10n/fr.js";
+import monthSelectPlugin from "flatpickr/dist/plugins/monthSelect";
 
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
@@ -27,6 +28,18 @@ Array.prototype.forEach.call(datepickers, function(el, i){
         dateFormat: "Y-m-dTH:i",
         altInput: true,
         altFormat: "j F Y H:i",
+      });
+      break;
+    case 'month':
+      flatpickr(el, {
+        ...flatpickrOptions,
+        altInput: true,
+        plugins: [
+          new monthSelectPlugin({
+            altFormat: "F Y",
+            dateFormat: "Y-m"
+          })
+        ]
       });
       break;
   }
