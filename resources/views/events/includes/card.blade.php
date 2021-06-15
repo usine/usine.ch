@@ -2,6 +2,15 @@
     <div class="me-3 flex-shrink-0" style="flex-basis: 100px;">
         @if ($event->flyer)
             <img src="{{ $event->flyer200 }}" alt="Flyer {{ $event->title }}" class="img-fluid">
+        @elseif ($event->venues->count() === 1)
+            @php
+                $venue = $event->venues->first();
+            @endphp
+            @if ($venue->logo)
+                <img src="{{ Storage::url($venue->logo) }}" alt="{{ $venue->name }}" class="img-fluid">
+            @endif
+        @else
+            <img src="/img/usine-batiment.svg" alt="L'Usine" class="img-fluid">
         @endif
     </div>
     <div>
