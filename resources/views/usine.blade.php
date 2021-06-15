@@ -15,5 +15,9 @@
     <p>
         Si chaque groupe possède son fonctionnement propre, certaines idées et pratiques sont partagées par toutes et tous : rejet du profit comme seul but des activités, de toute forme de concurrence ou de hiérarchie entre les individus ainsi qu’entre les disciplines.
     </p>
+
+    <hr class="my-5">
+
+    @include('layouts.includes.external-entities')
 </div>
 @endsection

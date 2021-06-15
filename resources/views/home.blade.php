@@ -10,6 +10,10 @@
             <p class="text-muted fst-italic">Pas d'évènements prévus</p>
         @endforelse
         <a href="{{ route('events.index') }}">Ces prochains jours →</a>
+
+        <div class="mt-5 fst-italic text-muted small">
+            @include('layouts.includes.external-entities')
+        </div>
     </section>
 
     @if ($latestNews)
